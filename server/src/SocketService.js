@@ -14,8 +14,11 @@ class SocketService {
     if (!server) {
       throw new Error("Server not found...");
     }
-
-    const io = socketIO(server);
+    const io = require('socket.io')(server, {
+      cors: {
+        origin: '*',
+      }
+    });
     console.log("Created socket server. Waiting for client connection.");
     // "connection" event happens when any client connects to this io instance.
     io.on("connection", socket => {

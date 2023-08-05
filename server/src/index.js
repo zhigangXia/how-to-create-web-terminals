@@ -15,10 +15,10 @@ const server = http.createServer((req, res) => {
   res.end();
 });
 
-const port = 8080;
+const ws_port = 1234;
 
-server.listen(port, function() {
-  console.log("Server listening on : ", port);
+server.listen(ws_port, function() {
+  console.log(`Server listening on web socket:  ${ws_port}`);
   const socketService = new SocketService();
   socketService.attachServer(server);
 });
